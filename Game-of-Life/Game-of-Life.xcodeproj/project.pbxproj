@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD3E5C511FD68E5B0079D76A /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3E5C501FD68E5B0079D76A /* Common.swift */; };
 		BD56C96C1FD66C5D00D02F3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56C96B1FD66C5D00D02F3C /* AppDelegate.swift */; };
 		BD56C96E1FD66C5D00D02F3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56C96D1FD66C5D00D02F3C /* ViewController.swift */; };
 		BD56C9711FD66C5D00D02F3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56C96F1FD66C5D00D02F3C /* Main.storyboard */; };
 		BD56C9741FD66C5D00D02F3C /* Game_of_Life.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD56C9721FD66C5D00D02F3C /* Game_of_Life.xcdatamodeld */; };
 		BD56C9761FD66C5D00D02F3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD56C9751FD66C5D00D02F3C /* Assets.xcassets */; };
 		BD56C9791FD66C5D00D02F3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD56C9771FD66C5D00D02F3C /* LaunchScreen.storyboard */; };
+		BD56C9811FD66D0C00D02F3C /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56C9801FD66D0C00D02F3C /* GridView.swift */; };
+		BD56C9831FD66D1800D02F3C /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56C9821FD66D1800D02F3C /* TileView.swift */; };
+		BD56C98B1FD6724A00D02F3C /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56C98A1FD6724A00D02F3C /* Board.swift */; };
+		BD56C98D1FD6783700D02F3C /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56C98C1FD6783700D02F3C /* Tile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD3E5C501FD68E5B0079D76A /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		BD56C9681FD66C5D00D02F3C /* Game-of-Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game-of-Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD56C96B1FD66C5D00D02F3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD56C96D1FD66C5D00D02F3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +30,10 @@
 		BD56C9751FD66C5D00D02F3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD56C9781FD66C5D00D02F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD56C97A1FD66C5D00D02F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD56C9801FD66D0C00D02F3C /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		BD56C9821FD66D1800D02F3C /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		BD56C98A1FD6724A00D02F3C /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		BD56C98C1FD6783700D02F3C /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD3E5C521FD68EA90079D76A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BD3E5C501FD68E5B0079D76A /* Common.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		BD56C95F1FD66C5D00D02F3C = {
 			isa = PBXGroup;
 			children = (
@@ -57,14 +75,51 @@
 			isa = PBXGroup;
 			children = (
 				BD56C96B1FD66C5D00D02F3C /* AppDelegate.swift */,
-				BD56C96D1FD66C5D00D02F3C /* ViewController.swift */,
-				BD56C96F1FD66C5D00D02F3C /* Main.storyboard */,
-				BD56C9751FD66C5D00D02F3C /* Assets.xcassets */,
-				BD56C9771FD66C5D00D02F3C /* LaunchScreen.storyboard */,
-				BD56C97A1FD66C5D00D02F3C /* Info.plist */,
+				BD56C9801FD66D0C00D02F3C /* GridView.swift */,
+				BD56C9821FD66D1800D02F3C /* TileView.swift */,
+				BD56C9871FD66D4E00D02F3C /* Model */,
+				BD56C9861FD66D3B00D02F3C /* Controller */,
+				BD56C9881FD66D5900D02F3C /* View */,
+				BD56C9891FD66D6200D02F3C /* Resources */,
+				BD3E5C521FD68EA90079D76A /* Common */,
 				BD56C9721FD66C5D00D02F3C /* Game_of_Life.xcdatamodeld */,
+				BD56C97A1FD66C5D00D02F3C /* Info.plist */,
 			);
 			path = "Game-of-Life";
+			sourceTree = "<group>";
+		};
+		BD56C9861FD66D3B00D02F3C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BD56C96D1FD66C5D00D02F3C /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BD56C9871FD66D4E00D02F3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD56C98A1FD6724A00D02F3C /* Board.swift */,
+				BD56C98C1FD6783700D02F3C /* Tile.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BD56C9881FD66D5900D02F3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD56C96F1FD66C5D00D02F3C /* Main.storyboard */,
+				BD56C9771FD66C5D00D02F3C /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BD56C9891FD66D6200D02F3C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD56C9751FD66C5D00D02F3C /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +194,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3E5C511FD68E5B0079D76A /* Common.swift in Sources */,
 				BD56C9741FD66C5D00D02F3C /* Game_of_Life.xcdatamodeld in Sources */,
 				BD56C96E1FD66C5D00D02F3C /* ViewController.swift in Sources */,
+				BD56C98B1FD6724A00D02F3C /* Board.swift in Sources */,
+				BD56C98D1FD6783700D02F3C /* Tile.swift in Sources */,
+				BD56C9811FD66D0C00D02F3C /* GridView.swift in Sources */,
+				BD56C9831FD66D1800D02F3C /* TileView.swift in Sources */,
 				BD56C96C1FD66C5D00D02F3C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
