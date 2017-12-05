@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +14,79 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Game_of_Life" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="eUB-oK-nPY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="617"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DnL-js-Fy8">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHl-Tz-Oco" customClass="GridView" customModule="Game_of_Life" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="yHl-Tz-Oco" secondAttribute="height" multiplier="1:1" id="3se-n7-lCb"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="yHl-Tz-Oco" firstAttribute="leading" secondItem="DnL-js-Fy8" secondAttribute="leading" id="7wP-1V-Vo6"/>
+                                            <constraint firstItem="yHl-Tz-Oco" firstAttribute="top" secondItem="DnL-js-Fy8" secondAttribute="top" id="JGn-tO-MLx"/>
+                                            <constraint firstAttribute="trailing" secondItem="yHl-Tz-Oco" secondAttribute="trailing" id="SYF-o9-ZEF"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="DnL-js-Fy8" firstAttribute="leading" secondItem="eUB-oK-nPY" secondAttribute="leading" id="7JH-HS-3Gx"/>
+                                    <constraint firstAttribute="bottom" secondItem="DnL-js-Fy8" secondAttribute="bottom" id="WfZ-ML-IyE"/>
+                                    <constraint firstItem="DnL-js-Fy8" firstAttribute="top" secondItem="eUB-oK-nPY" secondAttribute="top" id="ZFw-M5-fSg"/>
+                                    <constraint firstAttribute="trailing" secondItem="DnL-js-Fy8" secondAttribute="trailing" id="qRA-qA-yxd"/>
+                                </constraints>
+                            </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cpy-xM-eI0">
+                                <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vf3-Qv-KXy">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="30"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4av-RT-GWA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8d-TZ-TJd">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="30"/>
+                                        <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="resetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m9D-pb-sWF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cpy-xM-eI0" firstAttribute="top" secondItem="eUB-oK-nPY" secondAttribute="bottom" id="4G7-X4-c7j"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cpy-xM-eI0" secondAttribute="trailing" id="6yb-1K-ffD"/>
+                            <constraint firstItem="eUB-oK-nPY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LSH-yQ-Kwv"/>
+                            <constraint firstItem="DnL-js-Fy8" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="PD8-Aa-co7"/>
+                            <constraint firstItem="cpy-xM-eI0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RgG-5W-0hU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cpy-xM-eI0" secondAttribute="bottom" id="aHk-w3-gVX"/>
+                            <constraint firstAttribute="trailing" secondItem="eUB-oK-nPY" secondAttribute="trailing" id="dGA-yi-nSY"/>
+                            <constraint firstItem="DnL-js-Fy8" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" id="kT3-C0-c2f"/>
+                            <constraint firstItem="eUB-oK-nPY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zdr-Tp-PdD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="actionButton" destination="Vf3-Qv-KXy" id="mWc-lG-iuc"/>
+                        <outlet property="gridView" destination="yHl-Tz-Oco" id="UQv-ma-zy0"/>
+                        <outlet property="scrollView" destination="eUB-oK-nPY" id="O7Z-3v-iLn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

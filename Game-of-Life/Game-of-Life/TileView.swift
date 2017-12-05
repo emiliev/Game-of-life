@@ -8,14 +8,43 @@
 
 import UIKit
 
+protocol TileViewDelegate: class{
+    func tileTapped(tileView: TileView)
+}
+
 class TileView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var xPos: Int = 0
+    var yPos: Int = 0
+    var delegate: TileViewDelegate? = nil
+    
+    var alive: Bool = true{
+        didSet{
+            if oldValue != alive{
+                DispatchQueue.main.async {
+                    let stateColor: UIColor = self.alive ? .white : .black
+                    self.backgroundColor = stateColor
+                }
+            }
+        }
     }
-    */
-
+    
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        alive = !alive
+        delegate?.tileTapped(tileView: self)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.gray.cgColor
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Could not find initializer")
+    }
 }

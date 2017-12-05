@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class Tile{
+    
+    var alive: Bool = false
+    
+    init(state: Bool){
+        alive = state
+    }
+}
